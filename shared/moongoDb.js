@@ -1,7 +1,5 @@
 import mongoose from 'mongoose';
 
-
-
 const mongooseConnection = () => {
   const dbconnectionString = process.env.DB_CONNECT 
   mongoose.connect(dbconnectionString)
