@@ -2,11 +2,14 @@ import jwt from 'jsonwebtoken';
 import User from '../model/user.js';
 import bcrypt from 'bcrypt';
 
-const secretKey = 'your-secret-key';
+import { LoginUserSuccess, LoginUserWrongPassword } from '../shared/constant.js';
+
+
 
 export const loginUser = async (req, res) => {
 
     try {
+        const secretKey =  process.env.SECRET_KEY;
         const user = req.body;
 
         const { phoneNumber, password } = user;
@@ -29,7 +32,7 @@ export const loginUser = async (req, res) => {
             res.status(400).json({
                 status: 400,
                 success: false,
-                message: "wrong password",
+                message: LoginUserWrongPassword,
             });
             return;
         }
@@ -40,10 +43,11 @@ export const loginUser = async (req, res) => {
               expiresIn: "1d",
             }
           );
+          console.log(secretKey);
           res.status(200).json({
             status: 200,
             success: true,
-            message: "login success",
+            message: LoginUserSuccess,
             token: token,
           });;
 

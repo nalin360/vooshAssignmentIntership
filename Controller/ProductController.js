@@ -1,6 +1,6 @@
-import Products from "../model/product";
-import User from "../model/user";
-import { oderSuccessMessage } from "../shared/constant";
+import Products from "../model/product.js";
+// import User from "../model/user";
+import { oderSuccessMessage } from "../shared/constant.js";
 
 export const addOrder = async(req, res) => {
  

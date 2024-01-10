@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+// import { productDoucument }  from '../shared/constant';
 // Define a Mongoose schema
 const ProductSchema = new mongoose.Schema({
     // user_id, sub_total, phone_number

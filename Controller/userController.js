@@ -2,7 +2,6 @@ import bcrypt from 'bcrypt';
 import User from '../model/user.js';
 import { PhoneNumberMessage, UserCreatedMssage } from '../shared/constant.js';
 
-const secretKey = 'your-secret-key';
 export const registerUser = async (req, res) => {
 
     try {

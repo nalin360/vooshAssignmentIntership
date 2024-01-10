@@ -1,9 +1,10 @@
 import express from 'express';
-import mongoose from './shared/moongodb.js';
+import mongooseConnection from './shared/moongodb.js';
 import cors from "cors";
 import dotenv from "dotenv";
 
 import userRoutes from './routes/userRoutes.js';
+import { mainEndpoint } from './shared/constant.js';
 
 const app = express();
 // Cors
@@ -12,12 +13,12 @@ app.use(cors());
 dotenv.config();
 
 app.use(express.json());
-
-const port = 9000
+mongooseConnection()
+const PORT = process.env.PORT
 
 app.use(express.json());
 
-app.use('/api', userRoutes);
-app.listen(port, () => {
-  console.log(`http://localhost:${port}/`)
+app.use(mainEndpoint, userRoutes);
+app.listen(PORT, () => {
+  console.log(`http://localhost:${PORT}/`)
 })
