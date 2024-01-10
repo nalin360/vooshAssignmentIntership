@@ -1,5 +1,5 @@
 import express from 'express';
-import mongoose from './shared/moongodb.js';
+import dbconnection from './shared/moongodb.js';
 import cors from "cors";
 import dotenv from "dotenv";
 
@@ -14,7 +14,7 @@ dotenv.config();
 
 app.use(express.json());
 const PORT = process.env.PORT
-
+dbconnection()
 app.use(express.json());
 
 app.use(mainEndpoint, userRoutes);
