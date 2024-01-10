@@ -1,6 +1,5 @@
 import mongoose from 'mongoose';
 
-const mongooseConnection = () => {
   const dbconnectionString = process.env.DB_CONNECT 
   mongoose.connect(dbconnectionString)
   .then(() => {
@@ -9,7 +8,7 @@ const mongooseConnection = () => {
   .catch((error) => {
     console.error('Error connecting to MongoDB:', error);
   });
-}
 
 
-export default mongooseConnection;
+
+export default mongoose;
